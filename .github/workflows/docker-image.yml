@@ -22,9 +22,13 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
-        echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Fin login"
+    - name: Build Docker image
+      run: |
+        docker build -t rogerbo/docker-grahpql:0.0.1 .
+    - name: Push Docker image
+      run: |
+        doccker push rogerbo/docker-grahpql:0.0.1 .
         
         
     # - name: Build the Docker image
