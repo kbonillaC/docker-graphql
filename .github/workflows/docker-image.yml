@@ -26,9 +26,13 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t rogerbo/docker-grahpql:0.0.1 .
+        docker build -t rogerbo/docker-grahpql:latest.
+        
     - name: Push Docker image
       run: |
         docker push rogerbo/docker-grahpql:0.0.1
+        docker push rogerbo/docker-grahpql:latest
+        
         
         
     # - name: Build the Docker image
